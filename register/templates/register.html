@@ -1,0 +1,17 @@
+{% extends "login_view.html" %}
+
+{% block body %}
+<div class= 'container'>
+	<h1>REGISTER USER</h1>
+	<br>
+		<form  method="post" action="{% url 'register' %}">
+			{% csrf_token %}
+			{{ form.as_p}}
+
+			<input type="submit" value="Register" />
+			<input type="hidden" name="next" value="{{ next }}" />
+		</form>
+	<br>
+	<p> did u need to <a href='{% url "login" %}'> login</a>?</p> 
+</div>
+{% endblock %}

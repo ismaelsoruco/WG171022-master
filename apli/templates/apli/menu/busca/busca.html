@@ -1,0 +1,97 @@
+{% extends 'apli/base.html' %}
+{% block title %}Search{% endblock %}
+
+{% block body %}
+<div class="container">
+ <p><h3>Ergebnis sucht </h3></p>
+</div>
+
+    <div class="container">
+        {% if busca_clients %}
+            <p><h3>Clientes</h3></p>
+            <div class="table-responsive">
+                <table class="table  table-hover table-condensed">
+                    <tr class="active"> <!--Ventana emergente de boton de  para crear neuvo usuario.  -->
+                        
+                        <th class="">Name</th>
+                        <th  class="">Firma</th>
+                        <th class="">Mail</th>
+                        <th class="">Telefonnummer</th>
+
+                    </tr>
+
+                    {% for assignments in busca_assignments %}
+                        <tr>
+                            
+                            <td><a href="{% url 'assignments_detail' assignments.id %}" ><p class="">{{persona.name}}</p></a></td>
+                            <td><a href=""></a><p class="">{{assignments.company}}</p></a></td>
+                            <td><a href="mailto:{{ assignments.email }}"><p class="">{{assignments.email}}</p></a></td>
+                            <td><a href="tel:{{ assignments.phone }}"><p class="">{{assignments.phone}}</p></a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
+
+
+
+    <div class="container">
+        {% if busca_persons %}
+            <p><h3>Person</h3></p>
+            <div class="table-responsive">
+                <table class="table  table-hover table-condensed">
+                    <tr class="active"> <!--Ventana emergente de boton de  para crear neuvo usuario.  -->
+                        
+                        <th  class="">Name</th>
+                        <th  class="">Telefonnummer</th>
+                        <th  class="">Mail</th>
+                        <th  class=""> Address</th>
+                        <th  class="">Tipo</th>
+                    </tr>
+
+                    {% for persona in busca_persons %}
+                        <tr>
+                            
+                            <td><a href="{% url 'person_detail' persona.id %}" ><p class="">{{persona.name}}</p></a></td>
+                            <td><a href="tel:{{ person.telephone }}"><p class="">{{persona.phone}}</p></a></td>
+                            <td><a href="mailto:{{ person.email }}"><p class="">{{persona.email}}</p></a></td>
+                            <td><a href=""><p class=""></a>{{persona.address }}, {{persona.zip_code }}, {{persona.city }}, {{persona.country }}</a></p></td>
+                            <td><a href=""></a><p class="">{{persona.statut}}</p></a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        {% if busca_projects %}
+            <p><h3>Proyectos</h3></p>
+            <div class="table-responsive">
+                <table class="table  table-hover table-condensed">
+                    <tr class="active"> <!--Ventana emergente de boton de  para crear neuvo usuario.  -->
+                        
+                        <th class="">Name</th>
+                        <th class="">Client</th>
+                        <th class="">Type</th>
+                        <th class="">Date</th>
+                        <th class="">Comment</th>
+
+                    </tr>
+
+                    {% for proyecto in busca_projects %}
+                        <tr>
+                            
+                            <td><a href="{% url 'project_detail' proyecto.id %}" ><p class="">{{proyecto.name}}</p></a></td>
+                            <td><a href=""></a><p class="">{{proyecto.client}}</p></a></td>
+                            <td><a href=""></a><p class="">{{proyecto.sort}}</p></a></td>
+                            <td><a href=""></a><p class="">{{proyecto.start}}</p></a></td>
+                            <td><a href=""></a><p class="">{{proyecto.comment}}</p></a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

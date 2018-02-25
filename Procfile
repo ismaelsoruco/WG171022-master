@@ -1,0 +1,1 @@
+web: gunicorn WG.wsgi

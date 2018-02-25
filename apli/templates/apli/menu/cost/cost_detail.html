@@ -1,0 +1,36 @@
+{% extends 'apli/base.html' %}
+{% block body %}
+    <div class="container">
+        <h1><small>Cost:</small> {{cost}}</h1>
+    </div>
+
+    <!-- BOTONES PARA EDITAR ELIMINAR VENTANAS DESPEGABLES -->
+    <div class="container  modal-header">
+        <div class="row">
+            <!-- EDITAR -->
+            <a href="{% url 'cost_update' %}" <button type="submit" class="btn btn-success btn-xs glyphicon glyphicon-pencil col-md-offset-10" data-toggle="modal"></a>
+            <!-- ELIMINAR -->
+            <a href="{% url 'cost_delete' %}" <button type="submit" class="btn btn-danger btn-xs glyphicon glyphicon-trash col-md" data-toggle="modal"></a>
+            
+        </div>
+    </div>
+
+    <!-- INFORMACION DE ASSIGNMENT   -->
+    <div class= "container">
+        <br>
+        <div class="row">
+            <div class="container col-md-4">
+                <h4><b>Project: </b><a href="{% url 'project_detail' cost.project.id %}">{{cost.project.name}}</a></h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Statut:</b> {{cost.statut}}</h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Comment:</b> {{cost.comment }}</h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Send Date:</b> {{cost.send_date}}</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

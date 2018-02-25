@@ -1,0 +1,511 @@
+{% extends 'apli/base.html' %}
+{% block project_active %}active{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1><small>Project  {{project.sort}}</small> {{project.name}} <small>from {{project.user.first_name}}</small></h1>
+    </div>
+    
+    <div class="container  modal-header">
+        <div class="row">
+            <!-- add modelo -->
+            <a href="{% url 'assignment_new' %}" <button type="submit" class="btn btn-primary btn-md glyphicon glyphicon-user col-md-offset-2" data-toggle="modal"> </a>
+            <!-- add parner -->
+            <a href="{% url 'assignment_new' %}" <button type="submit" class="btn btn-primary btn-md glyphicon glyphicon-briefcase col-md" data-toggle="modal"></a>
+            <!-- add csoto -->
+            <a href="{% url 'cost_new' %}" <button type="submit" class="btn btn-primary btn-md glyphicon glyphicon-gbp col-md" data-toggle="modal"></a>
+            <!-- add tiempo -->
+            <a href="{% url 'create_time_work' %}" <button type="submit" class="btn btn-primary btn-md glyphicon glyphicon-time col-md" data-toggle="modal"></a> 
+            <!-- add tiempo -->
+            <a href="{% url 'task_new' %}" <button type="submit" class="btn btn-primary btn-md glyphicon glyphicon-calendar col-md" data-toggle="modal"></a>
+
+
+            <!-- segunda parte  -->
+            <!-- editar -->
+            <a href="{% url 'project_update' project.id %}" <button type="submit" class="btn btn-success btn-md glyphicon glyphicon-pencil col-md-offset-4" data-toggle="modal"></a>
+            <!-- enviar -->
+            <a href="{% url 'project_quotation_send' project.id %}" <button type="submit" class="btn btn-info btn-md glyphicon glyphicon-envelope col-md" data-toggle="modal"></a>
+            <!-- enviar rechnung-->
+            <a href="#" <button type="submit" class="btn btn-info btn-md glyphicon glyphicon-send col-md" data-toggle="modal"></a>
+            <!-- verpdf -->
+            <a target="_blank" href="{% url 'pdf_rechnung' project.id %}" <button type="submit" class="btn btn-warning btn-md glyphicon glyphicon-file col-md" data-toggle="modal"></a>
+            <!-- eliminar -->
+            <a href="{% url 'project_delete' project.id %}" <button type="submit" class="btn btn-danger btn-md glyphicon glyphicon-trash col-md" data-toggle="modal"></a>
+        </div>
+    </div>
+
+
+       <!-- INFORMACION DE CLIENTE   -->
+    <div class= "container">
+        <br>
+        <div class="row">
+            <div class="container col-md-4">
+                <h5><b>Kunde:</b> <a href="{% url 'person_detail' project.client.id %}">{{project.client}}</a></h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Date start:</b> {{project.start}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Date finish:</b> {{project.finish}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>type:</b> {{project.sort }}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Status:</b> {{project.statut}}</h5>
+            </div>
+            
+            <div class="container  col-md-4">
+                <h5><b>Archivzettel:</b> ARCHIVOS </h5>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="container  col-md-4">
+                <h5><b>Stunde ein Tag:</b> {{project.all_day}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Stunde half Tag:</b>{{project.half_day}}</h5>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+
+            <div class="container  col-md-4">
+                <h5><b>Profi: price all day </b>{{project.all_day_price_pro}}</h5>
+            </div>
+
+            <div class="container  col-md-4">
+                <h5><b>Profi: price half day </b>{{project.half_day_price_pro}}</h5>
+            </div>
+        </div>
+      <!--   <div class="row">
+            <div class="container  col-md-4">
+                <h4><b>Profi model: all day: </b>{{project.over_price_pro}}</h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Profi model: halfs day: </b>{{project.half_day_price_pro}}</h4>
+            </div>
+         </div> -->
+
+        <div class="row">
+            <div class="container  col-md-4">
+                    <h5><b>Profi over price: </b>{{project.over_price_pro}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Profi: all in price: </b>{{project.all_in_price_pro}}</h5>
+            </div>
+        </div>
+        
+
+        <br>
+        <div class="row">
+            <div class="container  col-md-4">
+                <h5><b>semi-profi: price all day </b>{{project.all_day_price_semipro}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>semi-Profi: price half day: </b>{{project.half_day_price_semipro}}</h5>
+            </div>
+
+        </div>
+        
+<!-- 
+        <div class="row">
+            <div class="container  col-md-4">
+                <h4><b>semi-Profi model: all day: </b>price for model</h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>semi-Profi model: halfs day: </b>price for model</h4>
+            </div>
+         </div> -->
+        <div class="row">
+            <div class="container  col-md-4">
+                <h5><b>semi-Profi over price: </b>{{project.over_price_semipro}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>semi-Profi client: all in price: </b>{{project.all_in_price_semipro}}</h5>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="container  col-md-4">
+                <h5 class="form-control-static"><b>Adresse</b> </h5>
+            </div>
+
+            <div class="container  col-md-4">
+                <h5 class="form-control-static" ><b>Land:</b> {{project.country}}</h5>
+             </div>
+
+            <div class="container  col-md-4">
+                <h5 class="form-control-static"><b>Stadt:</b> {{project.city}}</h5>
+            </div>
+
+            <div class="container  col-md-4">
+                <h5 class="form-control-static"><b>Straße:</b> {{project.address}}</h5>
+            </div>
+
+            </h4><div class="container  col-md-4">
+                <h5 class="form-control-static"><b>zip_code:</b> {{project.zip_code}}</h5>
+            </div>
+            </h4><div class="container  col-md-4">
+                <h5 class="form-control-static"><b>coment address: </b> {{project.comment_address}}</h5>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="container  col-md-12">
+                <h5><b>Honorary base</b>{{project.honorary_base}}</h5>
+            </div>
+
+            <div class="container  col-md-4">
+                <h5><b>Honorary plus </b>{{project.honorary_plus}}</h5>
+            </div>
+
+            <div class="container  col-md-8">
+                <h5><b>quantity models plus </b>{{project.quantity_models_honorary_plus}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Make and Style hours </b>{{project.ms_hours }}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Make and Style price </b>{{project.ms_price}}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container  col-md-4">
+                <h5><b>requirement price: </b>{{project.requirement_price}}</h5>
+            </div>
+
+            <div class="container  col-md-4">
+                <h5><b>Honorary plus </b>{{project.requirement_hours}}</h5>
+            </div>
+
+            <div class="container  col-md-4">
+                <h5><b>quantity models plus </b>{{project.requisiten_price_for_each_model}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Other</b>{{project.other_title  }}</h5>
+            </div>
+            <div class="container  col-md-8">
+                <h5><b>Other description </b>{{project.other_description}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Other price </b>{{project.other_price}}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b>Other price hours </b>{{project.other_hours }}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container  col-md-4">
+                <h5><b>photo price </b>{{project.photo_price }}</h5>
+            </div>
+
+            <div class="container  col-md-8">
+                <h5><b> photo stunde </b>{{project.photo_hours }}</h5>
+            </div>
+            <br> <br>
+
+            <div class="container  col-md-4">
+                <h5><b> total price </b>{{project.total_price }}</h5>
+            </div>
+            <div class="container  col-md-4">
+                <h5><b> tax </b>{{project.tax   }}</h5>
+            </div>
+                
+        </div>
+        <br><br><br>
+
+        <!-- TABLA de ASSIGNMENT ASSIGNADOS AL PROJECTO  -->
+        <h4>Assignments del Proyecto</h4>
+         {% if all_persons %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                         <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="pd_assignment" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Person</th>
+                                    <th>Telefonnummer</th>
+                                    <th>Email</th>
+                                    <th>Tipo</th>
+                                    <th>Statut</th>
+                                    <th>Send Date</th>
+                                    <th>Confirmation Date</th>
+                                    <th>Payment Date</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                {% for assignment in all_persons %}
+                                    <tr>
+                                        <td><a href="{% url 'assignment_detail' assignment.person.id %}">{{assignment.person.name}}</a></td>
+                                        <td><a href="tel:{{ assignment.person.phone }}">{{assignment.person.phone}}</a></td>
+                                        <td><a href="mailto:{{ assignment.person.email }}">{{assignment.person.email}}</a></td>
+                                        <td>{{assignment.sort}}</td>
+                                        <td>{{assignment.statut}}</td>
+                                        <td>{{assignment.send_date}}</td>
+                                        <td>{{assignment.confirmation_date}}</td>
+                                        <td>{{assignment.payment_date}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h5>No hay project</h5>
+        {% endif %}
+        <br>        
+  
+        <!-- TABLA de ATTACHMENT  -->
+        <h4>Attachment</h4>
+        {% if all_attachments %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                         <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="pd_attachment" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Sort</th>
+                                    <th>Send Date</th>
+                                    <th>Answer Date</th>
+                                    <th>Status</th>
+                                    <th>Comment WG</th>
+                                    <th>Comment Client</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                {% for attachment in all_attachments %}
+                                    <tr>
+                                        <td><a href="{#}">{{attachment.sort}}</th>
+                                        <td>{{attachment.send_date}}</td>
+                                        <td>{{attachment.answer_date}}</td>
+                                        <td>{{attachment.statut}}</td>
+                                        <td>{{attachment.comment_WG}}</td>
+                                        <td>{{attachment.comment_client}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h5>No hay attachments</h5>
+        {% endif %}
+        <br>    
+
+        <!-- COSTO   -->
+        <h4>Costs</h4>
+        {% if all_costs %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                         <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="pd_cost" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Cost</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                {% for cost in all_costs %}
+                                    <tr>
+                                        <td><a href="{% url 'cost_update' cost.id %}">{{cost.title}}</a></td>
+                                        <td>{{cost.date}}</td>
+                                        <td>{{cost.amount}}</td>
+                                        <td>{{cost.statut}}</td>
+                                        <td>{{cost.comment}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h5>No hay costs</h5>
+        {% endif %}
+        <br>    
+
+        <!-- TABLA de TASK  -->
+        <h4>TASK</h4>
+        {% if all_tasks %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                         <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="pd_task" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>title</th>
+                                    <th>Date start</th>
+                                    <th>date finish</th>
+                                    <th>Status</th>
+                                    <th>Comment</th>
+                                    <th>responsable</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                {% for task in all_tasks %}
+                                    <tr>
+                                    <td><a href="{#}">{{task.title}}</a></td>
+                                    <td>{{task.start}}</td>
+                                    <td>{{task.end}}</td>
+                                    <td>{{task.status}}</td>
+                                    <td>{{task.comment}}</td>
+                                    <td>{{task.responsable}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h5>No hay task</h5>
+        {% endif %}
+        <br>  
+
+        <!-- TABLA de WORK TIME  -->
+        <h4>WORK TIME</h4>
+        {% if all_time %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                         <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="pd_worktime" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>User</th>
+                                    <th>Date</th>
+                                    <th>Start</th>
+                                    <th>Finish</th>
+                                    <th>comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tim in all_time %}
+                                    <tr>
+                                        <td><a href="{#}">{{tim.title}}</a></td>
+                                        <td>{{tim.user}}</td>
+                                        <td>{{tim.date}}</td>
+                                        <td>{{tim.start_time}}</td>
+                                        <td>{{tim.finish_time}}</td>
+                                        <td>{{tim.comment}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h5>No hay work time</h5>
+        {% endif %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+   <script type="text/javascript">
+          
+
+
+        $(document).ready(function() {
+            $('#pd_attachment').DataTable(
+                {
+                    paging: false,
+                    searching: true,
+                    
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    }
+                });
+            });
+
+
+$(document).ready(function() {
+            $('#pd_assignment').DataTable(
+                {
+                    paging: false,
+                    searching: true,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    }
+                });
+            } );
+
+$(document).ready(function() {
+             $('#pd_cost').DataTable(
+                {
+                    paging: false,
+                    searching: true,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    }
+                });
+            } );
+
+$(document).ready(function() {
+             $('#pd_worktime').DataTable(
+                {
+                    paging: false,
+                    searching: true,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    }
+                });
+            } );
+
+$(document).ready(function() {
+             $('#pd_task').DataTable(
+                {
+                    paging: false,
+                    searching: true,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    }
+                });
+            } );
+
+            </script>
+
+  
+
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'apli/base.html' %}
+{% block title %}Delete a Cost{% endblock %}
+{% block contacts_active %}active{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+			    <p><h1 class="container col-md-offset-3" > Delete Cost </h1></p>
+			    <br>
+				<div class="panel panel-default">
+					<div class="panel-body container">
+
+						<form class="form-horizontal container" action="" method="POST" enctype="multipart/form-data">
+							{% csrf_token %}
+                            <p><h4 class="col-md-offset-1">Are you sure you want to delete "{{ object }}" ?</h4></p>
+                            <br>
+
+                            <button type="submit" value="Confirm" class="btn  btn-danger col-md-2 col-md-offset-1" >Eliminar</button>
+                             <a href="{{ object.get_absolute_url }}" <button type="button" class="btn btn-md btn-success col-md-offset-1 data-dismiss="modal" >Stornieren</a>
+
+                        </form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% load fullcalendar_tags %}
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Wunshgesichter{% endblock %}</title>
+
+        {% fullcalendar_css %}        
+        {% fullcalendar_print_css %}        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js" type="text/javascript"></script>
+        {% fullcalendar_jquery %}
+        {% fullcalendar_javascript %}
+        {% fullcalendar_jquery_ui %}
+        {% calendar_init calendar_config_options %}
+        
+        
+
+
+
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+ <style>
+            /*body {
+                padding-top:30px;
+            }*/
+        </style>
+    </head>
+
+
+
+    <body>
+        <div class="container ">
+          
+            <header>
+                <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar-1">
+                                    <span class="sr-only"> Menu</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                            </button>
+
+                            <a href="#" class="navbar-brand visible-xs">WG</a>
+                            <div class="collapse navbar-collapse" id="navbar-1">
+                                <ul class="nav navbar-nav">
+
+                                    <li role="presentation" class="{% block dashboard_active %}{% endblock %}"><a href="{% url 'dashboard' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Dashboard</a></li>
+
+                                    <li role="presentation" class="{% block clients_active %}{% endblock %}"><a href="{% url 'person_index' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> kontakt</a></li>
+
+                                    <li role="presentation" class="{% block project_active %}{% endblock %}"><a href="{% url 'project_index' %}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Projekt</a></li>
+ 
+                                    <li role="presentation" class="{% block calendario_active %}{% endblock %}"><a href="{% url 'calendar_by_user' %}"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Kalendar</a></li>
+                                
+
+                                <form  method="GET" action="{% url 'busca' %}" class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Suchen" class="form-control" name="q" value="{{ request.GET.q }}">
+                                        <button type="submit" class="btn btn-primary ">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </div>
+                                </form>
+
+                                            
+                                    <li role="presentation" ><a href="{% url 'logout' %}" > <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout {{ user }} </a></li>
+                                          
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>  
+        </div>  
+
+                {% block body %}
+
+                {% endblock %} 
+                <footer>
+                </footer>
+
+
+          
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+
+    <!-- validation de formulario -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+
+
+
+        
+
+
+    </body>
+</html>
+
+
+  

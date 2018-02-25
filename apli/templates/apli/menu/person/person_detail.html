@@ -1,0 +1,195 @@
+{% extends 'apli/base.html' %}
+{% block title %}Contacts{% endblock %}
+{% block clients_active %}active{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1><small>Kontakt:</small> {{person.name}}</h1>
+    </div>
+
+    <!-- BOTONES PARA EDITAR ELIMINAR VENTANAS DESPEGABLES -->
+    <div class="container  modal-header">
+        <div class="row">
+            <!-- EDITAR -->
+            <a href="{% url 'person_update' person.id %}" <button type="submit" class="btn btn-success btn-xs glyphicon glyphicon-pencil col-md-offset-10" data-toggle="modal"></a>
+
+            <!-- ELIMIMINAR -->
+            <a href="{% url 'person_delete' person.id %}" <button type="submit" class="btn btn-danger btn-xs glyphicon glyphicon-trash col-md" data-toggle="modal"></a>
+
+            <!-- CREAR PDF -->
+            <a href="#ventana3" <button type="submit" class="btn btn-warning btn-xs glyphicon glyphicon-random col-md" data-toggle="modal"></a>
+        </div>
+    </div>
+
+    <!-- INFORMACION DE CLIENTE   -->
+<div class="container">
+    <div class="row">
+        <div class="form-group inline">
+            <p><h5 class=" visible-lg visible-md col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Kontaktkursname:   </b>  {{ person.name_short}}   </h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>E-mail:        </b><a href="mailto:{{ person.email }}">  {{ person.email}}  </a>      </h4></p>      
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Telefonnummer:        </b> <a href="tel:{{ person.phone }}"> {{ person.phone}}  </a>      </h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Firma:      </b>  {{ person.company}}      </h5></p> 
+            <p><h5 class="visible-lg visible-md col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Firmakursname:</b>  {{ person.company_short}}</h5></p>
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Geburstag:     </b>  {{ person.birthday}}     </h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Address: </b> {{ person.address}}                </h5></p>
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Stadt: </b> {{ person.city}}                      </h5></p>
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Land: </b> {{ person.country}}                </h5></p> 
+       </div>
+    </div>
+  
+    <div class="row">
+        <div class="form-group inline">
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Postleitzahl:</b>  {{ person.zip_code}}              </h5></p>
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Kommentar:      </b>  {{ person.comment}}      </h5></p>
+         </div>
+    </div>
+<hr />
+    <div class="row">
+        <div class="form-group inline">
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Kunde: </b> {{ person.client}} </h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Modell: </b> {{ person.model}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Photograph:</b>  {{ person.photographe}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Make_up:</b>  {{ person.make_up}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Styling: </b> {{ person.styling}}</h5></p>
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Andere: </b> {{ person.other}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Kommentar andere: </b> {{ person.comment_other}}</h5></p> 
+        </div>
+    </div>
+    <hr />
+   <div class="row">
+        <div class="form-group inline">
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Agent: </b> {{ person.agent}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Kursname Agent: </b> {{ person.agent_short}}</h5></p> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group inline">
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Sedcard Kost:</b>  {{person.sedcard_cost}}  </h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Sedcard payed:</b>  {{person.sedcard_payed}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Sedcard Statu: </b> {{person.sedcard_statut}}</h5></p> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group inline">
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Bank:</b> {{person.bank_account}}</h5></p> 
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>IBAN: </b> {{person.IBAN}} </h5></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group inline">
+            <p><h5 class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Website: </b> {{ person.website}}</h5></p> 
+            <p><h5 class="visible-lg col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Letztesausfage :</b>  {{person.last_edited_by}}</h5></p> 
+            <p><h5 class="visible-lg col-xs-12 col-sm-6 col-md-4 col-lg-4"><b>Erstellen: </b> {{person.added_by}}</h5></p> 
+        </div>
+    </div>
+
+</div>
+
+
+
+
+    <!-- PANEL con TABLA  de PROYECTOS relacionados con cliente  -->
+    <br>
+    <div class="container">
+        {% if all_projects %}
+            <h3>Projekte en calidad de Cliente</h3>
+            <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="table_project" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Projektname</th>
+                        <th>Datum Start</th>
+                        <th>Datum Finish</th>
+                        <th>Price</th>
+                        <th>type</th>
+                        <th>status</th>
+                        <th>Notiz</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for project in all_projects %}
+                        <tr>
+                            <td><a href="{% url 'project_detail' project.id %}">{{project.name}}</a></td>
+                            <td>{{project.start}}</td>
+                            <td>{{project.finish}}</td>
+                            <td>{{project.total_price}}</td>
+                            <td>{{project.sort}}</td>
+                            <td>{{project.statut}}</td>
+                            <td>{{project.comment}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+
+    <br>
+    <div class="container">
+        {% if all_assignments %}
+            <h3>Projekte en los que trabaja </h3>
+            <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="table_project2" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Projektname</th>
+                        <th>Datum Start</th>
+                        <th>Datum Finish</th>
+                        <th>Tipo</th>
+                        <th>Statut</th>
+                        <th>Send Date</th>
+                        <th>Confirmation Date</th>
+                        <th>Payment Date</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for assign in all_assignments %}
+                        <tr>
+                            <td><a href="{% url 'assignment_detail' assign.id %}">{{assign.project.name}}</a></td>
+                            <td>{{assign.project.start}}</td>
+                            <td>{{assign.project.finish}}</td>
+                            <td>{{assign.sort}}</td>
+                            <td>{{assign.statut}}</td>
+                            <td>{{assign.send_date}}</td>
+                            <td>{{assign.confirmation_date}}</td>
+                            <td>{{assign.payment_date}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#table_project').DataTable({
+                    paging: false,
+                    // searching: false,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"}
+            });
+        });
+        $(document).ready(function() {
+            $('#table_project2').DataTable({
+                    paging: false,
+                    // searching: false,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"}
+            });
+        });
+    </script>
+{% endblock%}

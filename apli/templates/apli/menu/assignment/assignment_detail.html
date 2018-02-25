@@ -1,0 +1,73 @@
+{% extends 'apli/base.html' %}
+{% block body %}
+    <div class="container">
+        <h1><small>Assignment:</small> {{assignment}}</h1>
+    </div>
+
+    <!-- BOTONES PARA EDITAR ELIMINAR VENTANAS DESPEGABLES -->
+    <div class="container  modal-header">
+        <div class="row">
+            <!-- EDITAR -->
+            <a href="{% url 'assignment_update' assignment.id %}" <button type="submit" class="btn btn-success btn-xs glyphicon glyphicon-pencil col-md-offset-10" data-toggle="modal"></a>
+            
+            <!-- agregar Horario -->
+            <a href="{% url 'create_horaire_assignment' %}" <button type="submit" class="btn btn-info btn-xs glyphicon glyphicon-plus col-md" data-toggle="modal"></a>
+            <!-- send Horario -->
+            <a href="{#}" <button type="submit" class="btn btn-success btn-xs glyphicon glyphicon-send col-md" data-toggle="modal"></a>
+                <!-- ELIMINAR -->
+            <a href="{% url 'assignment_delete' assignment.id %}" <button type="submit" class="btn btn-danger btn-xs glyphicon glyphicon-trash col-md" data-toggle="modal"></a>
+        </div>
+    </div>
+
+    <!-- INFORMACION DE ASSIGNMENT   -->
+    <div class= "container">
+        <br>
+        <div class="row">
+            <div class="container col-md-4">
+                <h4><b>Project: </b><a href="{% url 'project_detail' assignment.project.id %}">{{assignment.project.name}}</a></h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Person:</b> <a href="{% url 'person_detail' assignment.person.id %}">{{assignment.person.name}}</a></h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Statut:</b> {{assignment.statut}}</h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Comment:</b> {{assignment.comment }}</h4>
+            </div>
+            <div class="container  col-md-4">
+                <h4><b>Send Date:</b> {{assignment.send_date}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLA de Horarios relacionados a projecto   -->
+    <div class="container">
+        <br>
+        <div class="panel panel-warning">
+            <div class="panel-heading"><h3>Horaires</h3></div>
+            <div class="panel-body">
+                {% if all_horaire %}
+                    <div class="table-responsive">
+                        <table class="table table-hover ">
+                            <tr class="active table-bordered">
+                                <th >Date</th>
+                                <th>Start</th>
+                                <th>Finish</th>
+                            </tr>
+                            {% for horaire in all_horaire %}
+                                <tr>
+                                    <td><a href="{% url 'edit_horaire_assignment' horaire.id %}"><p class="">{{horaire.date}}</p></a></td>
+                                    <td>{{horaire.start_time}}</td>
+                                    <td>{{horaire.finish_time}}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                {% else %}
+                    <p> Keine Horaires </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

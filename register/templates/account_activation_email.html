@@ -1,0 +1,9 @@
+{% autoescape off %}
+Hi {{ user.username }},
+
+Welcome! 
+
+Please clik here to complete your registration in WUNGESICHTER! 
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

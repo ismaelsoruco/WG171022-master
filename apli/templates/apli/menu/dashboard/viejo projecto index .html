@@ -1,0 +1,68 @@
+{% extends 'apli/base.html' %}
+{% block body %}
+
+
+    <!--TITULO y BOTON VENTANA    -->
+    <div class="container">
+        <div class=" form-group input-group form-inline col-md-12">
+            <h1>Projects</h1>
+            <a href="{% url 'project_new' %}"  <button type="submit" class=" btn btn-success btn-md pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+        </div>
+    </div>
+
+
+    
+    <div class="container">
+  
+            <div class="table-responsive">
+                <table id="table_id" class="table  table-hover table-condensed ">
+                    <tr class="active info"> 
+                        
+                        <th>Projektname</th>
+                        <th>Kunde</th>
+                        <th>start date</th>
+                        <th>end date</th>
+                        <th>type</th>
+                        <th>status</th>
+                        <th>commentar</th>
+                    </tr>
+
+                    {% for project in all_projects %}
+
+                        <tr>
+                            
+                            <td><a href="{% url 'project_detail' project.id %}">{{project.name}}</a></td>
+                            <td><a href="{{ project.client.get_absolute_url }}">{{project.client}}</a></td>
+                            <td>{{project.start}}</td>
+                            <td>{{project.finish}}</td>
+                            <td>{{project.sort}}</td>
+                            <td>{{project.statut}}</td>
+                            <td>{{project.comment}}</td>
+                        </tr>
+                    {% endfor %}
+                        <div class="pagination">
+                            <span class="step-links">
+                                {% if all_projects.has_previous %}
+                                    <a href="?page={{ all_projects.previous_page_number }}">bisherig</a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Seite {{ all_projects.number }} of {{ all_projects.paginator.num_pages }}.
+                                </span>
+
+                                {% if all_projects.has_next %}
+                                    <a href="?page={{ all_projects.next_page_number }}">Nächste</a>
+                                {% endif %}
+                                
+                            </span>
+                        </div>
+                </table>
+            </div>
+
+
+
+
+    </div>
+
+
+{% endblock%}

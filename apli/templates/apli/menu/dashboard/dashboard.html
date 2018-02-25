@@ -1,0 +1,245 @@
+{% extends 'apli/base.html' %}
+{% block dashboard_active %}active{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <h1><small>User:</small> {{user.first_name}}</h1>
+    </div>
+<br>
+    <!-- BOTONES de acceso rapido para funciones de la aplicacion -->
+    <div class="container  ">
+        <div class="row">
+           <div class="">
+                <a href="{% url 'task_new' %}" <button type="submit" class="responsive btn btn-primary btn-xs glyphicon glyphicon-pencil " data-toggle="modal"> New Task</a>
+
+                <a href="{% url 'project_new' %}" <button type="submit" class="btn btn-primary btn-xs cglyphicon glyphicon-trash col-md" data-toggle="modal"> New Projekt</a>
+
+                <a href="{% url 'person_new' %}" <button type="submit" class="btn btn-primary btn-xs glyphicon glyphicon-file col-md" data-toggle="modal"> New Kontakt </a>
+
+                <a href="{% url 'create_time_work' %}" <button type="submit" class="btn btn-primary btn-xs glyphicon glyphicon-file col-md" data-toggle="modal"> Give Timing </a>
+            </div>
+    
+
+ 
+    <!-- nueva tabla de projectos  -->
+        <br>
+        <h4>Projekte</h4>
+         {% if all_projects %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                         <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="dprojectsss" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Projektname</th>
+                                    <th>Start Datum</th>
+                                    <th>End Datum</th>
+                                    <th>Status</th>
+                                    <th>Kommentar</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                {% for project in all_projects %}
+
+                                    <tr>
+                                        
+                                        <td><a href="{{ project.client.get_absolute_url }}">{{project.name}}</a></td>
+                                        <td>{{project.start}}</td>
+                                        <td>{{project.finish}}</td>
+                                        <td>{{project.statut}}</td>
+                                        <td>{{project.comment}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h3>No hay project</h3>
+        {% endif %}
+
+
+
+           <br>
+        <h4>Assignment</h4>
+         {% if all_persons %}
+        <head>
+            <body>
+                <div class="container">
+                    <div class="row">
+                        <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="" class="display"  class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Projektname</th>
+                                    <th>status_project</th>
+                                    <th>Person</th>
+                                    <th>type</th>
+                                    <th>total price</th>
+                                    <th>status_assignment</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                {% for assignment in all_persons %}
+
+                                    <tr>
+                                            
+                                        <td><a href="{{ assignemnt.project.get_absolute_url }}" >{{assignment.project.name}}</a></td>
+                                        <td><a class="">{{assignment.project.statut}}</a></td>
+                                        <td><a href="{{ assignment.person.get_absolute_url }}">{{assignment.person}}</a>
+                                        <td>{{assignment.type}}</td>
+                                        <td>{{assignment.total_price}}</td>
+                                        <td>{{assignment.statut}}</td>
+                                            
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </head>
+        {% else %}
+            <h3>No hay assignment</h3>
+        {% endif %}
+
+
+    
+        
+<!-- ################################## -->
+
+
+
+    
+        <br>
+        {% if all_task %}
+        <h4>Task</h4>
+            <div class="table-responsive">
+                <table class="table   table-hover table-condensed">
+                    <tr class="active ">
+                        <th>Title</th>
+                        <th>Comment</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Status</th>
+                        <th>Project</th>
+                    </tr>
+
+                    <!-- { for task.status<>"Finished" in all_project } -->
+                        <tr>
+                         
+                            <td><a href="{{ task.title.get_absolute_url }}">{{task.title}}</a></td>
+                            <td>{{task.comment}}</td>          
+                            <td>{{task.start}}</td>
+                            <td>{{task.end}}</td>
+                            <td>{{task.status}}</td>
+                            <td><a href="{{ task.project.get_absolute_url }}" >{{task.project.name}}          
+                        </tr>
+                    { endfor }
+                </table>
+            </div>
+        {% else  %}
+            <!-- <h3>No hay assignment</h3> -->
+        {% endif %}
+    </div>
+
+
+    <div class="container">
+        <br>
+        {% if all_task %}
+        <h4>Auftrag: Attachment</h4>
+            <div class="table-responsive">
+                <table class="table  table-hover table-condensed">
+                    <tr class="active ">
+                        <th>Projektname</th>
+                        <th>Client</th>
+                        <th>send date</th>
+                        <th>status</th>
+                        <th>comment</th>
+                        
+                    </tr>
+
+                    <!-- { for attachment.sort="auftrag" and attachment.statut= "watiting for answer" in all_attachment } -->
+                        <tr>
+                         
+                            <td><a href="{{ attachment.project.title.get_absolute_url }}">{{attachment.project.name}}</a></td>
+                            <td><a href="{{ attachment.person.name.get_absolute_url }}">{{attachment.person.name}}</a></td>          
+                            <td>{{attachment.start}}</td>
+                            <td>{{attachment.statut}}</td>
+                            <td>{{attachment.comment_WG}}</td>
+                            
+                            
+                        </tr>
+                    <!-- { endfor } -->
+                </table>
+            </div>
+        {% else %}
+            <!-- <h3>No hay assignment</h3> -->
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <br>
+        {%  if all_task %}
+        <h4>Angebot: Attachment</h4>
+            <div class="table-responsive">
+                <table class="table   table-hover table-condensed">
+                    <tr class="active ">
+                        <th class="form-control-static">Projektname</th>
+                        <th class="form-control-static">Client</th>
+                        <th class="form-control-static">send date</th>
+                        <th class="form-control-static">status</th>
+                        <th class="form-control-static">comment</th>
+                        
+                    </tr>
+
+                    <!-- { for attachment.sort= angebot and attachment.statut= "watiting for answer" angebot in all_attachment } -->
+                        <tr>
+                         
+                            <td><a href="{{ attachment.project.title.get_absolute_url }}"><p class="form-control-static">{{attachment.project.name}}</p></a></td>
+                            <td><a href="{{ attachment.person.name.get_absolute_url }}"><p class="form-control-static">{{attachment.person.name}}</p></a></td>          
+                            <td><a><p class="form-control-static">{{attachment.start}}</p></a></td>
+                            <td><a><p class="form-control-static">{{attachment.statut}}</p></a></td>
+                            <td><a><p class="form-control-static">{{attachment.comment_WG}}</p></a></td>
+                            
+                            
+                        </tr>
+                    <!-- { endfor } -->
+                </table>
+            </div>
+        {% else %}
+            <!-- <h3>No hay assignment</h3> -->
+        {% endif %}
+    </div>
+    
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+ <script type="text/javascript">
+          
+
+            $(document).ready(function() {
+            $('#dprojectsss').DataTable(
+                {
+                    paging: false,
+                    // searching: false,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     false,
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    }
+                });
+            } );
+    </script>
+
+
+{% endblock %}

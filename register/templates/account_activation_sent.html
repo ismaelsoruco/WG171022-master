@@ -1,0 +1,11 @@
+
+
+{% extends "login_view.html" %}
+
+
+{% block body %}
+ <div class="container"> <h2>please confirm your email address to complete the registration</h2></div>
+ <div class='col-sm-6 col-sm-offset-3 text-align-center'>
+            <p>and then go to <a href="{% url 'login' %}">Login</a>?</p>
+          </div>
+{% endblock %}

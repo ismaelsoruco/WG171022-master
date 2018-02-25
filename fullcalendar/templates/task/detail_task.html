@@ -1,0 +1,223 @@
+{% extends 'apli/base.html' %}
+
+{% block body %}
+
+        <div class="container">
+            <h1><small>Kunde/in:</small> {{client.nombre_completo}}</h1>
+        </div>
+
+        <!-- BOTONES PARA EDITAR ELIMINAR VENTANAS DESPEGABLES -->
+        <!-- EDITAR -->
+
+            <div class="container  modal-header">
+                <div class="row">
+
+            <a href="{% url 'client_update' client.id %}" <button type="submit" class="btn btn-success btn-xs glyphicon glyphicon-pencil col-md-offset-10" data-toggle="modal"></a>
+
+
+        <!-- ELIMIMINAR -->
+
+            <a href="{% url 'client_delete' client.id %}" <button type="submit" class="btn btn-danger btn-xs glyphicon glyphicon-trash col-md" data-toggle="modal"></a>
+
+
+
+
+        <!-- CREAR PDF -->
+
+            <a href="#ventana3" <button type="submit" class="btn btn-warning btn-xs glyphicon glyphicon-file col-md" data-toggle="modal"></a>
+                </div>
+            </div>
+
+
+        <!-- INFORMACION DE CLIENTE  -->
+
+        <div class= "container">
+            <br>
+            <div class="row">
+                <div class="container col-md-4">
+                    <h4><b>Firma:</b> {{client.company}}</h4>
+                </div>
+
+                <div class="container col-md-4">
+                    <h4><b>Telefonummer:</b> <a href="tel:{{ client.telephone }}">{{client.telephone}}</a></h4>
+                </div>
+                <div class="container  col-md-4">
+                    <h4><b>Email:</b> <a href="mailto:{{ client.email }}">{{client.email}}</a></h4>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="container col-md-4">
+                    <h4><b>Kunde/in Suchename:</b> {{client.nickname}}</h4>
+                </div>
+                <div class="container  col-md-4">
+                    <h4><b>Firma Suchename:</b> {{client.company_short}}</h4>
+                </div>
+            </div>
+
+<br>
+
+            <div class="row">
+                <div class="container  col-md-4">
+                    <h3 class="form-control-static"><b>Adresse</b> </h3>
+                </div>
+
+                <div class="container  col-md-4">
+                    <h4 class="form-control-static" ><b>Land:</b> {{client.pais_address}}</h4>
+                 </div>
+
+                <div class="container  col-md-4">
+                    <h4 class="form-control-static"><b>Stadt:</b> {{client.ciudad_address}}
+                </div>
+
+                </h4><div class="container  col-md-4">
+                    <h4 class="form-control-static"><b>Straße:</b> {{client.street_address}}
+                </div>
+
+                </h4><div class="container  col-md-4">
+                    <h4 class="form-control-static"><b>Haus-nr:</b> {{client.numero_address}}
+                </div>
+
+
+
+            </div>
+            <div class="row">
+                <div class="container  col-md-8">
+                    <h4 class="form-control-static"><b> Notiz:</b>{{client.comment}} </h4>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+            <div class="row modal-header">
+
+            </div>
+
+
+
+         <br>
+
+        <!-- PANEL con TABLA de PROYECTOS relacionados con cliente  -->
+
+
+
+            <br>
+
+
+
+  <div class="container">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>Projekte vom   {{client.nombre_completo}}</h3>
+                </div>
+
+                        <div class="panel-body">
+                            {% if all_projects %}
+                                <div class="table-responsive">
+                                    <table class="table table-hover  ">
+                                        <tr class="active table-bordered">
+                                            <th>Projektname</th>
+                                            <th>Price</th>
+                                            <th>Datum Lieferen</th>
+                                            <th>Status</th>
+                                            <th>Notiz</th>
+                                        </tr>
+                                        {% for project in all_projects %}
+                                            <tr>
+                                                <td><a href="{% url 'detail_project' project.id %}"><p class="form-control-static">{{project.nombre}}<p></a></td>
+                                                <td><a><p class="form-control-static">15.000€<p></a></td>
+                                                <td><p class="form-control-static">{{project.fecha_creacion}}<p></td>
+                                                <td><p class="form-control-static">OK<p></td>
+                                                <td><p class="form-control-static">{{project.comment}}<p></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p> Keine Projekte </p>
+                            {% endif %}
+                        </div>
+            </div>
+        </div>
+
+        <!-- TABLA de Modelos relacionados a projectos del cliente   -->
+
+
+                <div class="container">
+
+                        <br>
+                            <div class="panel panel-warning">
+                                <div class="panel-heading"><h3>Modelle das haben mit  {{client.nombre_completo}} gearbeitet </h3></div>
+                                    <div class="panel-body">
+          <!-- % if all_clients % -->
+                                        <div class="table-responsive">
+                                            <table class="table table-hover ">
+                                                <tr class="active table-bordered">
+                                                    <th > Name</th>
+                                                    <th> Telefonnummer</th>
+                                                    <th> Email</th>
+                                                    <th> Status</th>
+                                                    <th> Card</th>
+
+                                                </tr>
+         <!-- % for client in all_clients % -->
+                                                <tr>
+                                                    <td>Ismael Soruco</td>
+                                                    <td><a href="tel:{{ client.telephone }}">{{client.telephone}}</a></td>
+                                                    <td><a href="mailto:{{ client.email }}">{{client.email}}</a></td>
+                                                    <td>Aktive</td>
+                                                    <td>OK</td>
+                                                </tr>
+           <!--% endfor % -->
+                                            </table>
+                                        </div>
+
+         <!-- % else % -->
+        <!--  <p> Keine Projekte </p> -->
+        <!--  % endif % -->
+
+
+
+                                    </div>
+                            </div>
+                </div>
+
+        <!-- TABLA de informacion de edicion de cliente   -->
+                <div class="container">
+                        <br>
+                            <div class="panel panel-info">
+                                <div class="panel-heading"><h3>Editieren information {{client.nombre_completo}} </h3></div>
+                                    <div class="panel-body">
+          <!-- % if all_clients % -->
+                                        <div class="table-responsive">
+                                            <table class="table table-hover ">
+                                                <tr class="active table-bordered">
+                                                    <th > Name</th>
+                                                    <th> Was</th>
+                                                    <th> Wann</th>
+
+
+                                                </tr>
+         <!-- % for client in all_clients % -->
+                                                <tr>
+                                                    <td>Ismael Soruco</td>
+                                                    <td><a href="tel:{{ client.telephone }}">{{client.telephone}}</a></td>
+                                                    <td><a href="mailto:{{ client.email }}">{{client.email}}</a></td>
+
+                                                </tr>
+           <!--% endfor % -->
+                                            </table>
+                                        </div>
+
+         <!-- % else % -->
+        <!--  <p> Keine Projekte </p> -->
+        <!--  % endif % -->
+
+
+                                    </div>
+                            </div>
+                    </div>
+{% endblock %}

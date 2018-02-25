@@ -1,0 +1,597 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"model",
+				"models\tmodule"
+			],
+			[
+				"Person",
+				"Person"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"sta",
+				"STATIC_URL"
+			],
+			[
+				"url",
+				"urlpatterns\tstatement"
+			],
+			[
+				"set",
+				"settings\tinstance"
+			],
+			[
+				"st",
+				"static\tfunction"
+			],
+			[
+				"MED",
+				"MEDIA_URL"
+			],
+			[
+				"fil",
+				"file\tstatement"
+			],
+			[
+				"file",
+				"FileField\tclass"
+			],
+			[
+				"P",
+				"Proyecto"
+			],
+			[
+				"id",
+				"index_user\tfunction"
+			],
+			[
+				"on",
+				"ManyToOneRel\tclass"
+			],
+			[
+				"urls",
+				"urls\tmodule"
+			],
+			[
+				"co",
+				"col-sm-10"
+			],
+			[
+				"col",
+				"col-sm-12"
+			],
+			[
+				"ta",
+				"table\tTag"
+			],
+			[
+				"ver",
+				"verbose_name\tstatement"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"nombre",
+				"nombre_completo"
+			],
+			[
+				"m",
+				"mduration\tDurationField (mduration)"
+			],
+			[
+				"get",
+				"get_object_or_404\tfunction"
+			],
+			[
+				"cont",
+				"contact\tstatement"
+			],
+			[
+				"conta",
+				"contact_id\tparam"
+			],
+			[
+				"try",
+				"try\tTry/Except"
+			],
+			[
+				"mo",
+				"models\tmodule"
+			],
+			[
+				"d",
+				"django"
+			],
+			[
+				"s",
+				"self"
+			],
+			[
+				"fro",
+				"from"
+			],
+			[
+				"email",
+				"EmailField"
+			],
+			[
+				"mod",
+				"Model"
+			],
+			[
+				"ht",
+				"HttpResponse\tclass"
+			],
+			[
+				"vi",
+				"views\tmodule"
+			],
+			[
+				"i",
+				"import\t(keyword)"
+			],
+			[
+				"u",
+				"urls"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"ge",
+				"getDay"
+			],
+			[
+				"wi",
+				"width"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "manage.py",
+			"settings":
+			{
+				"buffer_size": 800,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 490.0,
+		"last_filter": "packa",
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"con",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"INST",
+				"Package Control: Install Package"
+			],
+			[
+				"control",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 180.0,
+		"history":
+		[
+			"clear",
+			"5=5"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/modelos171020",
+		"/E/modelos171020/WG",
+		"/E/modelos171020/WG/settings"
+	],
+	"file_history":
+	[
+		"/E/modelos171020/WG/settings/local.py",
+		"/E/modelos171020/WG/settings/production.py",
+		"/E/modelos171020/WG/settings/base.py",
+		"/E/modelos171020/modelos171020/settings/production.py",
+		"/E/modelos171020/modelos171020/settings/local.py",
+		"/E/modelos171020/modelos171020/settings/email_info.py",
+		"/E/modelos171020/modelos171020/settings/base.py",
+		"/E/modelos171020/manage.py",
+		"/E/modelos171020/modelos171020/settings/__init__.py",
+		"/E/modelos171020/modelos171020/old settings.py",
+		"/E/modelos171020/apli/models.py",
+		"/E/modelos171020/fullcalendar/models.py",
+		"/E/modelos170809/apli/templates/apli/angebot/index_angebot.html",
+		"/E/modelos170809/apli/templates/apli/angebot/detail_angebot.html",
+		"/E/modelos170809/apli/urls.py",
+		"/E/modelos170809/apli/views.py",
+		"/E/modelos170809/apli/templates/apli/cost/detail_cost.html",
+		"/E/modelos170809/apli/models.py",
+		"/E/modelos170809/apli/templates/apli/person/index_person.html",
+		"/E/modelos170809/apli/templates/apli/person/detail_person.html",
+		"/E/modelos170809/apli/templates/apli/cost_form.html",
+		"/E/modelos170809/apli/templates/apli/client_form.html",
+		"/E/modelos170809/apli/templates/apli/client_confirm_delete.html",
+		"/E/modelos170809/apli/templates/apli/base.html",
+		"/E/modelos170809/apli/templates/apli/assignment_form.html",
+		"/E/modelos170809/apli/templates/apli/assignment_confirm_delete.html",
+		"/E/modelos170809/apli/templates/apli/activation_complete.html",
+		"/E/modelos170809/apli/templates/apli/manage.py",
+		"/E/modelos170809/apli/templates/apli/index_home_page.html",
+		"/E/modelos170809/apli/templates/apli/costo_confirm_delete.html",
+		"/E/modelos170809/apli/templates/apli/busca/busca.html",
+		"/E/modelos170809/apli/templates/apli/Assignment/detail_assignment.html",
+		"/E/modelos170809/apli/templates/apli/client/detail_client.html",
+		"/E/modelos170809/apli/templates/apli/model/detail_model.html",
+		"/E/modelos170809/WG/urls.py",
+		"/E/Copie/WG/settings/base.py",
+		"/E/modelos170809/WG/settings/base.py",
+		"/E/modelos170809/WG/settings/local.py",
+		"/E/modelos170809/WG/settings/production.py",
+		"/E/Copie/apli/views.py",
+		"/E/Copie/apli/urls.py",
+		"/E/Copie/WG/urls.py",
+		"/E/modelos170809/apli/templates/apli/detail_project.html",
+		"/E/modelos170809/apli/utils.py",
+		"/E/modelos170809/apli/templates/apli/busca.html",
+		"/E/modelos170809/apli/templates/apli/detail_client.html",
+		"/E/modelos170809/WG/settings/email_info.py",
+		"/E/modelos170809/nombre.pdf",
+		"/E/modelos170809/nombre_NrXIRsi.pdf",
+		"/E/modelos170809/fullcalendar/static/fullcalendar/fullcalendar.js",
+		"/E/modelos170809/apli/templates/apli/index_project.html",
+		"/E/modelos170809/apli/forms.py",
+		"/E/modelos170809/apli/templates/apli/index_client.html",
+		"/E/modelos170809/apli/templates/apli/xxxform.html",
+		"/E/modelos170809/apli/validators.py",
+		"/E/modelos170809/apli/templates/apli/detail_contact.html",
+		"/E/modelos170809/fullcalendar/models.py",
+		"/E/modelos170809/apli/admin.py",
+		"/E/modelos170809/fullcalendar/views.py",
+		"/E/modelos170809/fullcalendar/templates/fullcalendar/index.html",
+		"/E/modelos170809/fullcalendar/urls.py",
+		"/E/modelos170809/fullcalendar/templates/fullcalendar/base2.html",
+		"/E/MODELOCOS/WG legal/fullcalendar/templates/fullcalendar/base2.html",
+		"/E/MODELOCOS/WG legal/fullcalendar/templates/fullcalendar/calendar_init.html",
+		"/E/MODELOCOS/WG legal/fullcalendar/templates/fullcalendar/index.html",
+		"/E/MODELOCOS/WG legal/fullcalendar/templates/fullcalendar/calendar.html",
+		"/E/MODELOCOS/WG legal/apli/urls.py",
+		"/E/MODELOCOS/WG legal/WG/urls.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/views.py",
+		"/E/MODELOCOS/WG legal/apli/views.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/templatetags/fullcalendar_tags.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/static/fullcalendar/moment.js",
+		"/E/MODELOCOS/WG legal/WG/settings/production.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/urls.py",
+		"/E/MODELOCOS/WG legal/WG/settings/local.py",
+		"/E/MODELOCOS/WG legal/WG/settings/base.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/apps.py",
+		"/E/JP/JP/settings.py",
+		"/E/JP/fullcalendar/templatetags/__init__.py",
+		"/E/JP/fullcalendar/__init__.py",
+		"/E/JP/fullcalendar/admin.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/admin.py",
+		"/E/JP/fullcalendar/apps.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/models.py",
+		"/E/JP/fullcalendar/models.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/tests.py",
+		"/E/JP/fullcalendar/tests.py",
+		"/E/JP/fullcalendar/urls.py",
+		"/E/JP/fullcalendar/util.py",
+		"/E/MODELOCOS/WG legal/fullcalendar/util.py",
+		"/E/JP/fullcalendar/views.py",
+		"/E/MODELOCOS/WG legal/WG/settings/email_info.py",
+		"/E/MODELOCOS/WG legal/apli/utils.py",
+		"/E/MODELOCOS/WG legal/apli/static/apli/fullcalendar/fullcalendar.min.js",
+		"/E/JP/fullcalendar/templates/fullcalendar/base2.html",
+		"/E/WG/apli/models.py",
+		"/E/JP/fullcalendar/fullcalendar.py",
+		"/E/JP/fullcalendar/static/fullcalendar/fullcalendar/moment.js",
+		"/E/WG/apli/views.py",
+		"/E/WG/apli/urls.py",
+		"/E/JP/fullcalendar/templatetags/fullcalendar_tags.py",
+		"/E/JP/fullcalendar/static/fullcalendar/fullcalendar/fullcalendar.min.js",
+		"/E/JP/fullcalendar/static/fullcalendar/fullcalendar/fullcalendar.js",
+		"/C/Users/DQ-PC/Desktop/fullcalendar-3.4.0/fullcalendar.min.js",
+		"/C/Users/DQ-PC/Desktop/fullcalendar-3.4.0/fullcalendar.js",
+		"/C/Users/DQ-PC/Desktop/fullcalendar-3.4.0/gcal.js",
+		"/E/JP/fullcalendar/migrations/0003_auto_20170803_0038.py",
+		"/E/JP/fullcalendar/templates/fullcalendar/index.html",
+		"/E/JP/fullcalendar/templates/fullcalendar/base.html",
+		"/E/WG/apli/templates/apli/detail_contact.html",
+		"/E/JP/fullcalendar/templates/fullcalendar/calendar.html",
+		"/E/JP/JP/urls.py",
+		"/E/WG/WG/settings.py",
+		"/E/WG/apli/apps.py",
+		"/E/WG/WG/urls.py",
+		"/C/Users/DQ-PC/AppData/Local/Temp/Rar$DIa0.587/setup.py",
+		"/E/JP/manage.py",
+		"/E/mysite/demo/urls.py",
+		"/E/mysite/demo/templates/demo/base.html",
+		"/C/Users/DQ-PC/AppData/Local/Temp/Rar$DIa0.051/setup.py",
+		"/E/mysite/mysite/urls.py",
+		"/E/mysite/demo/static/demo/fullcalendar/fullcalendar.js",
+		"/E/mysite/demo/views.py",
+		"/E/mysite/demo/admin.py",
+		"/E/mysite/mysite/settings.py",
+		"/E/mysite/demo/models.py",
+		"/E/mysite/manage.py",
+		"/E/mysite/fullcalendar/templates/fullcalendar/calendar_init.html"
+	],
+	"find":
+	{
+		"height": 52.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"modelos171020",
+			"WG",
+			"secret",
+			"detail_person",
+			"model",
+			"detail_project",
+			"angeb",
+			"pdf_rechnung",
+			"arch",
+			"render_to_pdf",
+			"kwargs",
+			"Project",
+			"contact",
+			"statut",
+			"total_price",
+			"contact",
+			"index_contact",
+			"detail_co",
+			"index_contact",
+			"index_con",
+			"IntegerField",
+			"nombre",
+			"IntegerField(blank",
+			"Project",
+			"HttpResponse",
+			"proyec",
+			"Proyecto",
+			"user",
+			"integer",
+			"user",
+			"render_to_pdf",
+			"getEventSourceById",
+			"id",
+			"D",
+			"60",
+			"gotoDate",
+			"calen",
+			"schedule",
+			"apli:index",
+			"client:index",
+			"contact",
+			"build_systems",
+			"ip",
+			"72",
+			"71",
+			"-à",
+			"59",
+			"13",
+			"cellWidth",
+			"width",
+			"wei",
+			"80",
+			"60",
+			"FSI",
+			"7",
+			"dowClass",
+			"getCellSize",
+			"getCellSizeW",
+			"getCellSize",
+			"height",
+			"getCellSize",
+			"getCellSize()",
+			"width",
+			"dowClass",
+			"eeeeee"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"WG",
+			"modelos171020",
+			"person",
+			"IntegerField(null",
+			"Project",
+			"demo",
+			"index_contact",
+			"apli:index"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "manage.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								126,
+								126
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 51.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "SublimeProject.sublime-project",
+	"replace":
+	{
+		"height": 93.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"contact\\admin.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 313.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

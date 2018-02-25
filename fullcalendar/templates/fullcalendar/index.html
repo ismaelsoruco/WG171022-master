@@ -1,0 +1,20 @@
+{% extends "apli/base.html" %}
+{% block calendario_active %}active{% endblock %}
+
+{% block body %}
+<br>
+<br>
+ <div class="container  ">
+        <div class="row">
+           <div class="">
+                <a href="{% url 'task_new' %}" <button type="submit" class="responsive btn btn-primary btn-xs glyphicon glyphicon-pencil " data-toggle="modal"> New Task</a>
+            </div>
+         </div>
+</div>
+<br>
+<br>
+
+	<div class="container">
+		<div id="calendar"></div>
+	</div>
+{% endblock %}

@@ -1,0 +1,261 @@
+{% extends 'apli/base.html' %}
+{% block title %}Add a Person{% endblock %}
+{% block models_active %}active{% endblock %}
+
+{% block body %} 
+
+
+ <div class="container">
+   <form data-toggle="validator" role="form" method="POST" action="">
+
+        {% csrf_token %}
+        <p><h1 class="container "> neu Kontakt </h1></p>
+        <br>
+        <div class="form-group has-feedback">
+          <label for="name" class="control-label">{{ form.name.label }}</label>
+          <input type="text" class="form-control" id="name" placeholder="Ismael Soruco" name="name"  required  {{ form.name }}   
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+      
+        <div class="form-group has-feedback">
+          <label for="name_short" class="control-label">{{ form.name_short.label }}</label>
+          <input type="text" class="form-control" id="name_short" placeholder="shortname" name="name_short" {{ form.name_short }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+
+
+        <div class="form-group has-feedback ">
+            <label for="phone" class="control-label">{{ form.phone.label }}</label>  
+            <div class="input-group col-md-4">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                <input type="number"  class="form-control" name="phone" id="phone" placeholder="(845)555-1212"  required {{ form.phone }}
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        
+     <div class="form-group has-feedback">
+          <label for="email" class="control-label">{{ form.email.label }}</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" data-error="Bruh, that email address is invalid" name="email" required {{ form.email }}
+          <div class="help-block with-errors"></div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="IBAN" class="control-label">{{ form.IBAN.label }}</label>
+          <input type="text" class="form-control" id="IBAN" placeholder="IBAN" name="IBAN" {{ form.IBAN }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label for="birthday" class="control-label">{{ form.birthday.label }}</label> 
+            <input type="date" class="form-control" id="birthday" placeholder="birthday" name="birthday" {{ form.birthday }}
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+        
+        <div class="form-group has-feedback">
+          <label for="company" class="control-label">{{ form.company.label }}</label>
+          <input type="text" class="form-control" id="company" placeholder="company"  name="company" {{ form.company }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="company_short" class="control-label">{{ form.company_short.label }}</label>
+          <input type="text" class="form-control" id="company_short" placeholder="company_short" name="company_short" {{ form.company_short }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group form-check">
+          <label class="form-check-label" for="client">{{ form.client.label }}</label>
+          <input type="checkbox" class="form-group" id="client" {{ form.client }}
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label" for="model">{{ form.model.label }}</label>
+          <input type="checkbox" class="form-group" id="model" {{ form.model }}
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label" for="photographe">{{ form.photographe.label }}</label>
+          <input type="checkbox" class="form-group" id="photographe" {{ form.photographe }}
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label" for="make_up">{{ form.make_up.label }}</label>
+          <input type="checkbox" class="form-group" id="make_up" {{ form.make_up }}
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label" for="styling">{{ form.styling.label }}</label>
+          <input type="checkbox" class="form-group" id="styling" {{ form.styling }}
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label" for="other">{{ form.other.label }}</label>
+          <input type="checkbox" class="form-group" id="other" {{ form.other }}
+        </div>
+        <div class="form-group has-feedback">
+          <label for="comment_other" class="control-label">{{ form.comment_other.label }}</label>
+          <input type="text" class="form-control" id="comment_other" placeholder="shortname" name="comment_other" {{ form.comment_other }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+        <!-- <div class="form-group has-feedback">
+          <label for="country" class="control-label">{{ form.country.label }}</label>
+          <input type="text" class="form-control" id="country" placeholder="country" name="country" required {{ form.country }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+       <div class="form-group has-feedback">
+          <label for="city" class="control-label">{{ form.city.label }}</label>
+          <input type="text" class="form-control" id="city" placeholder="city" name="city" required {{ form.city }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="zip_code" class="control-label">{{ form.zip_code.label }}</label>
+          <input type="text" class="form-control" id="zip_code" placeholder="zip_code" name="zip_code" required {{ form.zip_code }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="address" class="control-label">{{ form.address.label }}</label>
+          <input type="text" class="form-control" id="address" placeholder="address" name="address" required {{ form.address }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="comment" class="control-label">{{ form.comment.label }}</label>
+          <input type="text" class="form-control" id="comment" placeholder="comment" name="comment" required {{ form.comment }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+
+
+
+        <div class="form-group has-feedback">
+          <label for="agent" class="control-label">{{ form.agent.label }}</label>
+          <input type="text" class="form-control" id="agent" placeholder="agent" name="agent" required {{ form.agent }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="agent_short" class="control-label">{{ form.agent_short.label }}</label>
+          <input type="text" class="form-control" id="agent_short" placeholder="agent_short" name="agent_short" required {{ form.agent_short }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="client" class="control-label">{{ form.client.label }}</label>
+          <input type="checkbox" class="form-control" id="client" placeholder="client" name="client" required {{ form.client }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="model" class="control-label">{{ form.model.label }}</label>
+          <input type="checkbox" class="form-control" id="model" placeholder="model" name="model" required {{ form.model }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="photographe" class="control-label">{{ form.photographe.label }}</label>
+          <input type="checkbox" class="form-control" id="photographe" placeholder="photographe" name="photographe" required {{ form.photographe }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+
+        <div class="form-group has-feedback">
+          <label for="make_up" class="control-label">{{ form.make_up.label }}</label>
+          <input type="checkbox" class="form-control" id="make_up" placeholder="make_up" name="make_up" required {{ form.make_up }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="styling" class="control-label">{{ form.styling.label }}</label>
+          <input type="checkbox" class="form-control" id="styling" placeholder="styling" name="styling" required {{ form.styling }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="other" class="control-label">{{ form.other.label }}</label>
+          <input type="checkbox" class="form-control" id="other" placeholder="other" name="other" required {{ form.other }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="comment_other" class="control-label">{{ form.comment_other.label }}</label>
+          <input type="text" class="form-control" id="comment_other" placeholder="comment_other" name="comment_other" required {{ form.comment_other }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="sedcard_cost" class="control-label">{{ form.sedcard_cost.label }}</label>
+          <input type="text" class="form-control" id="sedcard_cost" placeholder="sedcard_cost" name="sedcard_cost" required {{ form.sedcard_cost }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="sedcard_payed" class="control-label">{{ form.sedcard_payed.label }}</label>
+          <input type="text" class="form-control" id="sedcard_payed" placeholder="sedcard_payed" name="sedcard_payed" required {{ form.sedcard_payed }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+
+        <div class="form-group has-feedback">
+          <label for="bank_account" class="control-label">{{ form.bank_account.label }}</label>
+          <input type="text" class="form-control" id="bank_account" placeholder="bank_account" name="bank_account" required {{ form.bank_account }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="website" class="control-label">{{ form.website.label }}</label>
+          <input type="text" class="form-control" id="website" placeholder="website" name="website" required {{ form.website }}
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div> -->
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="{{request.META.HTTP_REFERER}}" <button type="button" class="btn btn-warning " data-dismiss="modal" >Stornieren</a>
+        </div>
+
+
+
+      </form>
+ </div>
+
+
+{% endblock %}
+
+<!-- 	<div class="container">
+		<p><h1 class="container "> Neuer Kontakt erstellen </h1></p>
+		<br>
+	</div>
+
+
+	 <div class="form-group has-feedback">
+          <label for="name_short" class="control-label">Twitter</label>
+          <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" pattern="^[_A-z0-9]{1,}$" maxlength="15" class="form-control" id="name_short" placeholder="1000hz" required>
+          </div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors">Hey look, this one has feedback icons!</div>
+        </div>
+
+
+	<form class="" action="" method="post" enctype="multipart/form-data">
+		{% include 'apli/form-template.html' %}
+	</form>	 -->

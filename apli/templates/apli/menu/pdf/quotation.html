@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <html>
+
+
+
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 100;
+                 font-size: 14px;
+                 margin-left: 1cm;
+                 margin-right: 1cm;
+             }
+             .header {
+                 font-size: 12px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .unter_image {
+                 font-size: 12px;
+                 font-weight: 100;
+                 text-align: right;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 15px;
+                 font-weight: 100;
+                 
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;  
+             }
+             .image {
+                 font-size: 15px;
+                 font-weight: 100;
+                 text-align: right;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;  
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .firma{
+                  -pdf-frame-content: headerContent;
+                  width: 8in;
+                  top: 4cm;
+                  font-size: 20px;
+               
+                  height: 4cm;
+            }
+
+         </style>
+        </head>
+
+    <body>
+
+            
+<!-- imagen logo --> 
+                        <div class="image">
+                            <img width="180", height="100",  src="http://www.juli-harnack-turnier.de/JHT_2017_Logos_Sponsoren/Wunschgesichter.jpg">
+                        </div>
+                        <div class='unter_image'>
+                            <p , class='title'><small>Bremens People-und Modelagentur</small></p>
+                        </div>
+                    
+<!-- Nombre empresa direccion --> 
+                    <div class='details' >
+                        <p font='times 24' > <small> <strong>Wunschgesichter Jaekel & Smith Gbr </strong> Tettenbornstr. 10, 28211 Bremen</small></p>
+                    </div>
+                
+            
+<!-- donde se envia-->
+            <h2, font='times 24'> Bernstein GmbH</h2>
+            <br>
+            <h2, font='times 24'> Konsul-Smidt-str. 8j</h2>
+            <br>
+            <h2, font='times 24'> 28217 Bremen</h2>
+            <br>
+
+<!-- comentario  sobre rechnung-->
+            <p>Auf der Basis Ihrer Beauftragung vom 14./15.03.2016 erlauben wir uns Ihnen
+            folgende Positionen in {{ project.sort }} zu stellen: </p>   
+
+<!-- informacion de cliente, orden de compra, projecto, dato. la utima parte es la inea separatoria-->
+             <strong>Kunde:</strong> {{ project.client }}<br/>
+             <strong>Firma:</strong> {{     client.id }} <br/>
+             <strong>Rechnungsnummer N°:</strong> {{ project.id }} <br/>
+             <strong>Projekt:</strong> {{ project.name}}<br/>
+             <strong>Notiz:</strong> {{ project.comment }}<br/>
+             <strong>Datum:</strong> {{ project.start }}
+             <hr class='hrItem' />
+
+<!-- vamos con la informacion importante-->
+             <strong><h3>1.0 Modelhonorar Profi</h3></strong>
+            
+            <p, font='times'><u><em>Buchung/Honorar:<br></em></u>  {{ project.half_day }} Std. / {{ project.half_day_price_pro }} Euro (pro Model)</p>
+            <p, font='times'><u><em></em></u>  {{ project.all_day }} Std. / {{ project.all_day_price_pro }} Euro (pro Model)</p>
+            <p, font='times 24'><u><em>Model:</em></u> Julia C., Andreas W.</p>
+            <p, font='times 24'>zzgl. Buyout, Agenturhonorar und anfallende Reisekosten</p><br/>
+            <p, font='times 24'><strong>1.1 Buyout -all in-</p></strong>
+            <p, font='times 24'><u><em>Nutzung:</em></u> alle Print- & Onlinemedien, weltweit, unbegrenzt</p>
+            <p, font='times 24'>350% auf das Modelhonorar (= {{ project.all_in_price_pro }} Euro)</p>
+             <hr class='hrItem' />
+
+
+             <strong><h4>2.0 Modelhonorar Semi-Profi</h4></strong>
+            
+            <p, font='times'><u><em>Buchung/Honorar:<br></em></u>  {{ project.half_day }} Std. / {{ project.half_day_price_semipro }} Euro (pro Model)</p>
+            <p, font='times'><u><em></em></u>  {{ project.all_day  }} Std. / {{ project.all_day_price_semipro}} Euro (pro Model)</p>
+            <p, font='times 24'><u><em>Model:</em></u> Julia C., Andreas W.</p>
+            <p, font='times 24'>zzgl. Buyout, Agenturhonorar und anfallende Reisekosten</p><br>
+            <p, font='times 24'><strong>2.1 Buyout -all in-</p></strong>
+            <p, font='times 24'><u><em>Nutzung:</em></u> alle Print- & Onlinemedien, weltweit, unbegrenzt</p>
+            <p, font='times 24'>350% auf das Modelhonorar = {{ project.all_in_price_semipro }}  Euro</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <strong><h4>3.0 Agenturhonorar</h4> </strong>
+
+            <p, font='times'>20% auf das Modelhonorar und Buyouts (={{ project.honorary_base }})</p>
+            <p, font='times'>15% auf das Modelhonorar und Buyouts (bei einer buchung ab {{ project.quantity_models_honorary_plus }} Models) (={{ project.honorary_plus }}) </p>
+            <hr class='hrItem' />
+
+
+            <strong><h4>4.0 Make-up & Styling on Set</h4></strong>
+            <p, font='times'>{{ project.ms_hours }} Std. / {{ project.ms_price }} Euro</p>
+            <p, font='times'>Wer:Make-up & Styling am Set, Wunschgesichter-Team</p>
+
+             <hr class='hrItem' />
+
+             <strong><h4>5.0 Photographer </h4></strong>
+            <p, font='times'>{{ project.photo_hours }} Std. / {{ project.photo_price }} Euro</p>
+            <p, font='times'> Wer: Photo pro GmbH</p>
+
+             <hr class='hrItem' />
+             
+            <strong><h4>6.0 Beschaffung von Requisiten</h4></strong>
+            <p, font='times'>{{ project.requirement_price }} Euro</p>
+            <p, font='times'>Beschaffung, Organisation von Requisiten und Bekleidung,</p>
+            <p, font='times'>(Aufbügeln, Zusammenstellen, Sortieren, Rücktransport...)</p>
+            <p, font='times'>Stundenaufwand: {{ project.mrequirement_hours }} Stunden</p>
+            <hr class='hrItem' />
+
+
+            <strong><h4>7.0 Requisiten</h4></strong>
+            <p, font='times'>{{ project.requisiten_price_for_each_model }} Euro</p>
+            <p, font='times'>Requisiten die nicht zurückgegeben werden können:</p>
+            <p, font='times'>Schuhe (3), Blazer, Schmuck, Uhr, Hose (4), Bluse, Kittel,</p>
+            <p, font='times'>Haarnetz, Gürtel, Taschenlampe, Klemmbretter</p>
+            <hr class='hrItem' />
+
+
+           <strong><h4>8.0 Reisekosten</h4></strong>
+           <p, font='times'>448,19 Euro</p>
+            <p, font='times'>Julia: HB-HH-HB = 61 Euro</p>
+            <p, font='times'>Andreas W.: MUC-HB-MUC = 278,69 Euro, Taxi = 30 Euro</p>
+            <p, font='times'>Hotel: Motel One, 1 x Einzelzimmer = 78,50 Euro</p>
+            <hr class='hrItem' />
+
+            <strong><h4>Summe</h4></strong>
+            <p, font='times'>8.249,90 Euro</p>
+            <p, font='times'>{{ project.tax }} % Mehrwertsteuer 1.567,48 Euro</p>
+            <p, font='times'>Gesamt {{ project.total_price }} Euro </p>
+            <hr class='hrItem'>
+
+<!-- condiciones -->           
+           <li> Das Zahlungsziel ist 10 Tage nach Rechnungsdatum.
+            Ich bedanke mich für den Auftrag und die Zusammenarbeit.</li><br>
+            
+<!-- firma de CEO --> 
+            <div class="firma">
+                <p, font='times'><u>{{ project.user }}</u></p>
+                <p, font='times'><small>CEO Wunschgesichter</small></p>
+            </div>
+    
+     </body>
+
+<body>
+    <h1>Testing xhtml2pdf </h1>
+    <ul>
+        <li><b>Hello, world!</b></li>
+        <li><i>Hello, italics</i></li>
+        <li>hola</li>
+    </ul>
+    <hr />
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nulla erat, porttitor ut venenatis eget,
+    tempor et purus. Nullam nec erat vel enim euismod auctor et at nisl. Integer posuere bibendum condimentum. Ut
+    euismod velit ut porttitor condimentum. In ullamcorper nulla at lectus fermentum aliquam. Nunc elementum commodo
+    dui, id pulvinar ex viverra id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+    himenaeos.</p>
+
+    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquam vitae lectus sit amet accumsan. Morbi
+    nibh urna, condimentum nec volutpat at, lobortis sit amet odio. Etiam quis neque interdum sapien cursus ornare. Cras
+    commodo lacinia sapien nec porta. Suspendisse potenti. Nulla hendrerit dolor et rutrum consectetur.</p>
+    <hr />
+    <img  width="26" height="20" src="data:image/gif;base64,R0lGODlhEAAOALMAAOazToeHh0tLS/7LZv/0jvb29t/f3//Ub//ge8WSLf/
+    rhf/3kdbW1mxsbP//mf///yH5BAAAAAAALAAAAAAQAA4AAARe8L1Ekyky67QZ1hLnjM5UUde0ECwLJoExKcppV0aCcGCmTIHEIUEqjgaORCMxIC6e0C
+    cguWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"  >
+    <hr />
+    <table class="table table-bordered">
+        <tr><th>Model</th><th>Dia</th><th>Confirmacion</th><th>Comentario</th></tr>
+
+        <tr><td><p class="form-control-static">Ismael Soruco</p></td><td>17.08.2017</td><td>OK</td><td>todos son hermosos</td></tr>
+        <tr><td><p class="form-control-static">Felipe Soruco</p><td>17.08.2017</td><td>OK</td><td>todos son hermosos</td></tr>
+        <tr><td><p class="form-control-static">Marcel Soruco</p><td>17.08.2017</td><td>OK</td><td>todos son hermosos</td></tr>
+        <tr><td><p class="form-control-static">Luquitas</p><td>17.08.2017</td><td>OK</td><td>todos son hermosos</td></tr>
+    </table>
+</body>
+
+
+
+
+ </html>
+

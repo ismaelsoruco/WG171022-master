@@ -1,0 +1,30 @@
+{% extends "login_view.html" %}
+
+{% block body %}
+
+{% if form.errors %}
+<p class= 'container'>Your username and password didn't match. Please try AGAIN.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p class= 'container'>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p class= 'container'>Please login to use this programm</p>
+    {% endif %}
+{% endif %}
+
+<form class= 'container' method="post" action="{% url 'login' %}">
+{% csrf_token %}
+{{ form.as_p }}
+<br>
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p class= 'container' ><a href="/register/password_reset">Lost password?</a></p>
+<p class= 'container' ><a href="{% url 'signup' %}">Register</a></p>
+
+{% endblock %}

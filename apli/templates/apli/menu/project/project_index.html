@@ -1,0 +1,79 @@
+{% extends 'apli/base.html' %}
+{% block project_active %}active{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="form-group ">
+            <div class="row">
+                <h1 class="form-control-static">Projects</h1>
+            </div>
+
+            <div class="row">
+                <a href="{% url 'project_new' %}"  <button type="submit" class=" btn btn-success btn-md pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+            </div>
+        </div>
+        <hr/>
+        <br>
+
+        {% if all_projects %}
+            <head>
+                <body>
+                    <div class="container">
+                        <div class="row">
+                            <table data-order='[[ 1, "asc" ]]'  data-page-length='10' id="project_index" class="table  table-hover table-condensed order-column" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Projektname</th>
+                                        <th>Kunde</th>
+                                        <th>start date</th>
+                                        <th>end date</th>
+                                        <th>type</th>
+                                        <th>status</th>
+                                        <th>commentar</th>
+                                    </tr>
+                                </thead>
+                            
+                                <tbody>
+                                    {% for project in all_projects %}
+                                        <tr>
+                                            <td><a href="{% url 'project_detail' project.id %}">{{project.name}}</a></td>
+                                            <td><a href="{{ project.client.get_absolute_url }}">{{project.client}}</a></td>
+                                            <td>{{project.start}}</td>
+                                            <td>{{project.finish}}</td>
+                                            <td>{{project.sort}}</td>
+                                            <td>{{project.statut}}</td>
+                                            <td>{{project.comment}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </body>
+            </head>
+        {% else %}
+            <p>There are no projects</p>
+        {% endif %}
+    </div>       
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#project_index').DataTable({
+                    // paging: false,
+                    // searching: false,
+                    ordering:  true,
+                    // scrollY: 400
+                    "info":     true,
+                    "language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"}
+            });
+        });
+    </script>
+{% endblock%}

@@ -1,0 +1,22 @@
+{% extends 'apli/base.html' %}
+
+{% block head_title %} {{ title }} {% endblock head_title %}
+
+{% block body %}
+<h1 class='container'>  <p>  NEW TASK </p> </h1>
+
+
+
+<form class='container' method='POST'> {% csrf_token %}
+		<imput type='text' name='title' placeholder="your title"><br/>
+		<imput type='text' name='title' placeholder="your title"><br/>
+		<imput type='text' name='title' placeholder="your title"><br/>
+		<imput type='text' name='title' placeholder="your title"><br/>
+		<imput type='text' name='title' placeholder="your title"><br/>
+
+
+	<button type='submit' class="btn btn-success btn-md" >Save</button> 
+	<a href="{% url 'index_task' %}" <button type="button" class="btn btn-warning btn-md" data-dismiss="modal" >Stornieren</a>
+<!-- btn btn-warning btn-md pull-right -->
+</form>
+{% endblock %}
